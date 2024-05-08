@@ -1,0 +1,17 @@
+# Node.js files
+node_modules/
+.env
+
+# Testing files
+coverage/
+test-results/
+
+# Logs
+logs/
+
+# Build output
+dist/
+build/
+
+# Temporary files
+.tmp/
