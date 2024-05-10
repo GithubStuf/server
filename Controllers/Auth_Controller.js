@@ -21,9 +21,8 @@ const addUser = async (req, res) => {
         });
 
         const savedUser = await user.save();
-        res.status(201).json(savedUser);
+        res.status(200).json(savedUser);
     } catch (error) {
-        console.log(error);
         res.status(500).json(error);
     }
 };
@@ -46,9 +45,9 @@ const authUser = async (req, res) => {
                 });
 
                 const { _id, isAdmin, ...others } = user._doc;
-                return res.status(200).json({ _id, isAdmin, ...others, token }); // Updated status code and response format
+                return res.status(200).json({ _id,name,lastname, ...others, token }); // Updated status code and response format
             }
-            return res.status(404).json(err);
+            return res.status(404).json(error);
         });
     } catch (error) {
         console.log(error);
