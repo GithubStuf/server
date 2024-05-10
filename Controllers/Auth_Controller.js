@@ -44,7 +44,7 @@ const authUser = async (req, res) => {
                     expiresIn: '3d'
                 });
 
-                res.status(200).json({ token, ...user._doc });
+                return res.status(200).json({ token, ...user._doc });
             } else {
                 // Password is invalid
                 return res.status(401).json('Invalid password');
