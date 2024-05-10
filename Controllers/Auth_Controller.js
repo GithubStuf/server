@@ -28,32 +28,34 @@ const addUser = async (req, res) => {
 };
 
 const authUser = async (req, res) => {
-    try {
-        const { email, password } = req.body;
-        const user = await User.findOne({ email });
-        if (!user) {
-            return res.status(404).json('User not found'); // Updated status code
-        }
-        bcrypt.compare(password, user.password, (err, result) => {
-            if (result) {
-                // Password is valid
-                const token = jwt.sign({
-                    userId: user._id,
-                    isAdmin: user.isAdmin,
-                }, process.env.SECRET_KEY, {
-                    expiresIn: '3d'
-                });
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json('User not found');
+        }
+        bcrypt.compare(password, user.password, (err, result) => {
+            if (result) {
+                // Password is valid
+                const token = jwt.sign({
+                    userId: user._id,
+                    isAdmin: user.isAdmin,
+                }, process.env.SECRET_KEY, {
+                    expiresIn: '3d'
+                });
 
-                const { _id, isAdmin, ...others } = user._doc;
-                return res.status(200).json({ _id,name,lastname, ...others, token }); // Updated status code and response format
-            }
-            return res.status(404).json(error);
-        });
-    } catch (error) {
-        console.log(error);
-        return res.status(500).json(error); // Updated status code
-    }
+                const { _id, name, lastname, isAdmin, ...others } = user._doc;
+                return res.status(200).json({ _id, name, lastname, isAdmin, ...others, token });
+            } else {
+                return res.status(401).json('Invalid password');
+            }
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json('Internal server error');
+    }
 };
+
 
 
 module.exports = {
