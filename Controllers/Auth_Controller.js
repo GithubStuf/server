@@ -49,8 +49,8 @@ const authUser = async (req, res) => {
                 return res.status(401).json('Invalid password');
             }
         });
-    } catch (e) {
-        return res.status(500).json(error: e.toString());
+    } catch (error) {
+        return res.status(500).json(error.toString());
     }
 };
 
