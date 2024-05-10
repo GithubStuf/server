@@ -34,7 +34,7 @@ const authUser = async (req, res) => {
         if (!user) {
             return res.status(404).json('User not found');
         }
-        bcrypt.compare(user.password, password, (error, result) => {
+        bcrypt.compare(password, user.password, (err, result) => {
             if (result) {
                 // Password is valid
                 const token = jwt.sign({
@@ -45,7 +45,8 @@ const authUser = async (req, res) => {
                 });
 
                 res.status(200).json({ token, ...user._doc });
-            } else if(error) {
+            } else {
+                // Password is invalid
                 return res.status(401).json('Invalid password');
             }
         });
@@ -53,6 +54,7 @@ const authUser = async (req, res) => {
         return res.status(500).json(e.toString());
     }
 };
+
 
 
 
