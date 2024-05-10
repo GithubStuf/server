@@ -34,8 +34,8 @@ const authUser = async (req, res) => {
         if (!user) {
             return res.status(404).json('User not found');
         }
-        const isMatch = bcrypt.compare(password, user.password, (err, result) => {
-            if (isMatch) {
+        bcrypt.compare(user.password, password, (error, result) => {
+            if (result) {
                 // Password is valid
                 const token = jwt.sign({
                     userId: user._id,
@@ -45,12 +45,12 @@ const authUser = async (req, res) => {
                 });
 
                 return res.status(200).json({ token, ...user._doc });
-            } else {
+            } else if(error) {
                 return res.status(401).json('Invalid password');
             }
         });
-    } catch (error) {
-        return res.status(500).json(error.toString());
+    } catch (e) {
+        return res.status(500).json(e.toString());
     }
 };
 
