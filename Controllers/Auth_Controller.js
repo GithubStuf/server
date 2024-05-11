@@ -57,7 +57,7 @@ const authUser = async (req, res) => {
 
 const userData = async (req, res) => {
     const user = await User.findById(req.user.userId);
-    res.json({...user._doc, token: req.token});
+    res.json({...user._doc, token:req.token});
 }
 
 
