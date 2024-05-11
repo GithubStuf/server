@@ -4,7 +4,7 @@ const { verifyTokenAndAuthorization } = require('../Controllers/verifyToken');
 
 router.post('/register', Controller.addUser);
 router.post('/login', Controller.authUser);
-router.get('/',verifyTokenAndAuthorization, Controller.userData);
+router.get('/',verifyToken, Controller.userData);
 
 
 module.exports = router;
