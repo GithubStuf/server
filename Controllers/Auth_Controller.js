@@ -55,10 +55,15 @@ const authUser = async (req, res) => {
     }
 };
 
+const userData = async (req, res) => {
+    const user = await User.findById(res.user.userId);
+    res.json({...user.doc, token: req.token});
+}
 
 
 
 module.exports = {
     addUser,
     authUser,
+    userData
 };
