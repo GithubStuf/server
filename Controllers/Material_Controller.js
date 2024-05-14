@@ -67,7 +67,7 @@ const getAllMaterials = async (req, res) => {
     try {
         const materials = await Materials.find();
 
-        res.status(200).json({ materials });
+        res.status(200).json(materials);
     } catch (err) {
         res.status(500).json({ message: "An error occurred fetching material\n" + err });
     }
