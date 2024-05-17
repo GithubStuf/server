@@ -8,8 +8,8 @@ const { verifyTokenAndAuthorization, verifyTokenAndAdmin, verifyToken } = requir
 //New Order
 router.post('/new', verifyToken, Controller.newOrder);
 
-//GET USER
-router.get('/:userId', verifyTokenAndAuthorization, Controller.getUserOrders);
+/*GET USER
+router.get('/:userId', verifyTokenAndAuthorization, Controller.getUserOrders);*/
 
 //GET ALL USER
 router.get('/all', verifyTokenAndAdmin, Controller.getAllOrders);
