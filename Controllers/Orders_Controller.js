@@ -26,15 +26,16 @@ const getUserOrders = async (req, res)=>{
     }
 };
 
-//GET ALL
-const getAllOrders =  async (req, res) =>{
+const getAllOrders = async (req, res) => {
     try {
         const orders = await Orders.find();
-        res.status(200).json({orders});
+        res.status(200).json({ success: true, data: orders });
     } catch (error) {
-        res.status(500).json(error)
+        console.error("Error fetching orders:", error);
+        res.status(500).json({ success: false, error: "Internal Server Error" });
     }
 }
+
 
 
 
