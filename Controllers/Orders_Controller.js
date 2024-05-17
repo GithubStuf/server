@@ -16,7 +16,7 @@ const newOrder =  async (req, res) => {
     }
 };
 
-//GET USER ORDER
+/*GET USER ORDER
 const getUserOrders = async (req, res)=>{
     try{
         const orders = await Orders.find({userId: req.params.userId});
@@ -24,7 +24,7 @@ const getUserOrders = async (req, res)=>{
     }catch(err){
         res.status(500).json(err)
     }
-};
+};*/
 
 const getAllOrders = async (req, res) => {
     try {
