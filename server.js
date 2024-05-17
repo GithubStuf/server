@@ -16,7 +16,7 @@ app.use(express.json());
 app.use("/auth", require('./Routes/AuthRoute'));
 app.use("/users", require('./Routes/UserRoute'));
 app.use("/materials", require('./Routes/MaterialRoute'));
-app.use("/category", require('./Routes/CategoryRoute'));
+app.use("/orders",require('./Routes/OrdersRoute'));
 
 app.get("/", (req, res) => {
   res.send('This is the BackEnd Server')
