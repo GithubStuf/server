@@ -12,6 +12,6 @@ router.post('/new', verifyToken, Controller.newOrder);
 router.get('/:userId', verifyTokenAndAuthorization, Controller.getUserOrders);*/
 
 //GET ALL USER
-router.get('/all', verifyTokenAndAdmin, Controller.getAllOrders);
+router.get('/', verifyTokenAndAdmin, Controller.getAllOrders);
 
 module.exports = router;
