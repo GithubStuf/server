@@ -17,6 +17,7 @@ app.use("/auth", require('./Routes/AuthRoute'));
 app.use("/users", require('./Routes/UserRoute'));
 app.use("/materials", require('./Routes/MaterialRoute'));
 app.use("/orders",require('./Routes/OrdersRoute'));
+// app.use("/quantity",require('./Routes/QuantityRoute'));
 
 app.get("/", (req, res) => {
   res.send('This is the BackEnd Server')
