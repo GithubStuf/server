@@ -7,24 +7,22 @@ const quantitySchema = new mongoose.Schema({
     },
     Reference: [
         {
-            productId: {
-                type: String,
-            },
             productName: {
                 type: String,
-            },
-            quantity: {
-                type: Number,
-                default:1,
             }
         }
     ],
     Brand: {
         type: String, 
         required: true,},
-    quantity: {
-        type: Number, 
-        required: true,},
+    quantity: [
+        {
+            ctn:{
+                type: Number, 
+                required: true,
+            }
+        }
+    ],
     },
     {timestamps: true }
 );
