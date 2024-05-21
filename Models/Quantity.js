@@ -5,14 +5,14 @@ const quantitySchema = new mongoose.Schema({
         type:String,
         required: true,
     },
-    Reference: [
+    reference: [
         {
             productName: {
                 type: String,
             }
         }
     ],
-    Brand: {
+    brand: {
         type: String, 
         required: true,},
     quantity: [
