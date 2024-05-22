@@ -13,6 +13,9 @@ const distributionSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    PhoneNumber:{
+        type: String,
+    },
     Orders: [
         {
             name: {
