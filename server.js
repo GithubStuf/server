@@ -15,6 +15,7 @@ app.use(express.json());
 //Routes
 app.use("/auth", require('./Routes/AuthRoute'));
 app.use("/users", require('./Routes/UserRoute'));
+app.use("/category", require('./Routes/CategoryRoute'));
 app.use("/materials", require('./Routes/MaterialRoute'));
 app.use("/orders", require('./Routes/OrdersRoute'));
 app.use("/quantity", require('./Routes/QuantityRoute'));
