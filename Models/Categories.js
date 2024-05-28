@@ -6,9 +6,8 @@ const categoriesSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    subCategory: {
+    specifications: {
         type: [String],
-        required: true,
         unique: true,
     },
 },

@@ -10,15 +10,15 @@ const materialSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    subCategory: {
-        type: String,
-        required: true,
+    specifications: {
+        type: [String],
+        unique: true,
     },
     quantity: {
         type: Number,
         required: true,
     },
-    quantityInStock: {
+    securityStock: {
         type: Number,
         required: true,
     },
