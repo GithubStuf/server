@@ -14,11 +14,11 @@ const materialSchema = new mongoose.Schema({
         type: [String],
         unique: true,
     },
-    quantity: {
+    securityStock: {
         type: Number,
         required: true,
     },
-    securityStock: {
+    quantityAvailable: {
         type: Number,
         required: true,
     },
