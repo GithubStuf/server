@@ -6,23 +6,8 @@ const Materials = require('../Models/Materials');
 
 const newMaterial = async (req, res) => {
     try {
-        const {
-            name,
-            category,
-            subCategory,
-            quantity,
-            quantityInStock,
-            inStock
-        } = req.body;
 
-        const material = new Materials({
-           name: name,
-           category:category,
-           subCategory:subCategory,
-           quantity:quantity,
-           quantityInStock:quantityInStock,
-           inStock:inStock
-        });
+        const material = new Materials(req.body);
 
         const savedMaterial = await material.save();
         res.status(200).json(savedMaterial);
